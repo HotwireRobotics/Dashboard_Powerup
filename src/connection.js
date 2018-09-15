@@ -22,7 +22,8 @@ onkeydown = key => {
 };
 
 /**
- * Function to be called when robot connects
+ * Function to be called when robot c
+ onnects
  * @param {boolean} connected
  */
 function onRobotConnection(connected) {
@@ -42,7 +43,7 @@ function onRobotConnection(connected) {
     // On connect hide the connect popup
     //document.body.classList.toggle('login', false);
 	
-	document.getElementById('ConnectStatus').innerHTML = "value";
+	document.getElementById('ConnectStatus').innerHTML = state;
 	
     loginShown = false;
   } else if (loginShown) {
