@@ -6,94 +6,151 @@
 	<style>
 
 h1 {
-    background-color:red;
 	font-color:white;
-	    padding: 35px;
+	   
 		font-weight: bold;
 }
 h3 {
-    background-color:gray;
 	    padding: 2px;
 }
 head{
 	 background-color:red;
 }
+#navx_box{
+	padding: 20px;
+	background-color: #DCDCDC;
+	border: 3px solid red;
+}
+#ultrasonic_box{
+	position: relative;
+	left: 110px;
+	bottom: 181px;
+	padding: 20px;
+	background-color: #DCDCDC;
+	border: 3px solid red;
+}
+#pot_box{
+	position: relative;
+	left: 270px; 
+	bottom: 361.5px;
+	padding: 20px;
+	background-color: #DCDCDC;
+	border: 3px solid red;
+}
+#nuematic_box{
+	position: relative;
+	left: 400px; 
+	bottom: 542px;
+	padding: 20px;
+	background-color: #DCDCDC;
+	border: 3px solid red;
+}
+#beam_box{
+	position: relative;
+	left: 550px; 
+	bottom: 722.5px;
+	padding: 20px;
+	background-color: #DCDCDC;
+	border: 3px solid red;
+}
+
+
 </style>
     <meta charset="utf-8">
     <title>FRC Dashboard</title>
 	<link href="css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 	
 	<!-- UIkit CSS -->
 	<link rel="stylesheet" href="css/uikit.min.css" />
 
 	<!-- UIkit JS -->
 	<script src="uikit.min.js"></script>
-	<script src="uikit-icons.min.js"></script>
-	<h1> Hotwire Dashboard </h1> 
+	<script src="uikit-icons.min.js"></script>	
 </head>
 
 <body>
 	
 	
 	
-	<div>
-	
-	
-	<nav class="uk-navbar-container" uk-navbar>
-    <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="file:///C:/Users/proff/Desktop/dashboard/Dashboard/src/index.html">Home Page</a></li>
-            <li><a href=""></a></li>
-        </ul>
-		<ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="file:///C:/Users/proff/Desktop/dashboard/Dashboard/src/Debug.html">Debug Mode</a></li>
-            <li><a href=""></a></li>
-        </ul>
-    </div>
-</nav>
+<div class="uk-padding uk-background-muted">
 
- <header>
-        <!-- Tells whether robot is connected to dashboard. -->
-        <div id="robot-state">Unknown state</div>
-    </header>
+	
+	<!-- Header -->
+	<div id="header-holder"><h1 id="header-disconnected" class="uk-text-bold uk-text-danger"> Hotwire Dashboard </h1> </div>
+	<p id="robot-status" class="uk-text-muted"></p>
+	
+	<hr>
 
-<div id="login">
-        <input id="connect-address" type="text" value="test">
-        <button id="connect" disabled>Connecting</button>
-    </div>
-<script src="networktables/networktables.js"></script>
-    <script src="connection.js"></script>
-    <script src="ui.js"></script>	
-	
-	<h3 id="ConnectStatus"> Not Connected </h3>
-	
 		
-
 	
-	</div>
 
 
 <ul class="uk-subnav uk-subnav-pill" uk-switcher>
-    <li><a href="#">Debug</a></li>
-    <li><a href="#">Another Tab</a></li>
-    <li><a href="#">Third Tab!</a></li>
+	<li><a href="#">Connection Status</a></li>   
+   <li><a href="#">Debug</a></li>
+	<li><a href="#">Auto Selection</a></li>
+	<li><a href="#">Network Tables</a></li>
 </ul>
+
+<hr>
 
 <ul class="uk-switcher uk-margin">
+    
+	
+	<!-- Connection Status -->
     <li>
-	<div id = "navx_box">
-		<h3> Navx </h3>
-		<h3 id="navx_yaw"> value </h3>
-	</div>
+		
+		
+
+		<div class="uk-margin" uk-margin>
+        <div uk-form-custom="target: true">
+			<input class="uk-input uk-form-width-small" type="text" placeholder="Default" id="connect-address" value="10.29.90.2">
+        </div>
+
+        <button id="connect" class="uk-button uk-button-default">Connect</button>
+		<input type="button" value="Refresh Page" class="uk-button uk-button-default" onClick="window.location.reload()">
+		</div>
+		
+
+		
+		<!-- 
+		FRCDashboard Scripts 
+		These need to come after the login html
+		-->
+		<script src="networktables/networktables.js"></script>
+		<script src="connection.js"></script>
+		<script src="ui.js"></script>
 	</li>
 	
-    <li>Hello again!</li>
-    <li>Bazinga!</li>
+	<!-- Debug -->
+	<li>
+		<div id ="sensors display">
+
+	</li>
+	
+	<!-- Auto Selection -->
+	<li>
+		<form class="uk-form-stacked">
+		<div class="uk-margin">
+			<div class="uk-form-label">Autonomous Selection</div>
+			<div class="uk-form-controls">
+				<label><input id="switch" class="uk-radio" type="radio" name="auto-radios" checked> Switch </label><br>
+				<label><input id="cross-the-line" class="uk-radio" type="radio" name="auto-radios"> Cross the line </label>
+			</div>
+		</div>
+		</form>
+	</li>
+	
+	<!-- Network Tables -->
+	<li>
+	<button class="uk-button uk-button-default" onClick="UpdateNetworkTablesList()">Refresh</button>
+	<ul class="uk-list uk-list-striped" id="network-tables-list"><li></li></ul>
+	
+    
 </ul>
 
+
+<div align="center" id="camera_div"></div>	
+
 </body>
-
-
-
 </html>

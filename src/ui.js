@@ -1,15 +1,43 @@
-counter = 0;
 
-function JSMethod() {
-	document.getElementById('HeaderNumber').innerHTML = counter;
-	counter = counter + 1;
+// Update navx
+let Navx = (key, value) => {
+	console.log("navx updated" + value);
+	//document.getElementById('navx_yaw').innerHTML = variableName;
 }
+NetworkTables.addKeyListener('/SmartDashboard/test_num', Navx, true);
 
+let autoChoice = "none";
 
-let Navx = (key, variableName) => {
-	document.getElementById('navx_yaw').innerHTML = variableName;
+setInterval(function() {
+	//var newValue = ui.autoSelect.
+
+	var oldChoice = autoChoice
+	var autoRadioList = document.getElementsByName("auto-radios");
+	for (var i = 0; i < autoRadioList.length; i++) {
+		if (autoRadioList[i].checked) {
+			autoChoice = autoRadioList[i].id;
+		}
+	}
+	
+	if (oldChoice != autoChoice)
+	{
+		console.log("Updating auto choice to " + autoChoice);
+		console.log(NetworkTables.getValue('/SmartDashboard/autoChoice'));
+		
+		NetworkTables.putValue('/SmartDashboard/autoChoice', autoChoice);
+	}
+	
+}, 10);
+
+function UpdateNetworkTablesList()
+{
+	var tablesList = document.getElementById("network-tables-list");
+	tablesList.innerHTML = "";
+	var keyList = NetworkTables.getKeys();
+	for (var i = 0; i < keyList.length; i++) {
+		tablesList.innerHTML += "<li>" + keyList[i] + " \n VALUE= " + NetworkTables.getValue(keyList[i], "DEFAULT") + "</li>";
+	}
 }
-NetworkTables.addKeyListener('/SmartDashboard/navx_yaw', Navx);
 
 /*
 let UpdateNumber = (key, value) => {
