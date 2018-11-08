@@ -8,6 +8,17 @@ NetworkTables.addKeyListener('/SmartDashboard/test_num', Navx, true);
 
 let autoChoice = "none";
 
+let PancakeUpdate = (key, value) => {
+	console.log("updating pancake value " + value);
+	var pancakeDisplay = document.getElementById('pancake-display');
+	if (value) {
+		pancakeDisplay.innerHTML = '<h2 id="header-disconnected" class="uk-text-bold uk-text-success"> pancakes </h2>';
+	} else {
+		pancakeDisplay.innerHTML = '<h2 id="header-disconnected" class="uk-text-bold uk-text-danger"> pancakes </h2>';
+	}
+}
+NetworkTables.addKeyListener('/SmartDashboard/Pancake', PancakeUpdate, true);
+
 setInterval(function() {
 	//var newValue = ui.autoSelect.
 
@@ -21,13 +32,16 @@ setInterval(function() {
 	
 	if (oldChoice != autoChoice)
 	{
-		console.log("Updating auto choice to " + autoChoice);
-		console.log(NetworkTables.getValue('/SmartDashboard/autoChoice'));
-		
-		NetworkTables.putValue('/SmartDashboard/autoChoice', autoChoice);
+		NetworkTables.putValue('/SmartDashboard/Cross Line; Normal Switch; Shoot Switch', autoChoice);		
 	}
-	
-}, 10);
+}, 20);
+
+NetworkTables.putValue('/SmartDashboard/Auto Delay', 0);
+function UpdateAutoDelay()
+{
+	var delaySeconds = document.getElementById('auto-delay').value;
+	NetworkTables.putValue('/SmartDashboard/Auto Delay', delaySeconds);
+}
 
 function UpdateNetworkTablesList()
 {
