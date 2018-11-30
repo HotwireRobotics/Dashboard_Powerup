@@ -40,6 +40,12 @@ function onRobotConnection(connected) {
   if (connected) {
     // On connect hide the connect popup
     //document.body.classList.toggle('login', false);
+<<<<<<< HEAD
+=======
+	
+	document.getElementById('ConnectStatus').innerHTML = "value";
+	
+>>>>>>> parent of 7138aa0... Testing and working navx
     loginShown = false;
   } else if (loginShown) {
     setLogin();

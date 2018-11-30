@@ -6,6 +6,7 @@ let Navx = (key, value) => {
 }
 NetworkTables.addKeyListener('/SmartDashboard/test_num', Navx, true);
 
+<<<<<<< HEAD
 let autoChoice = "none";
 
 let PancakeUpdate = (key, value) => {
@@ -54,8 +55,13 @@ function UpdateNetworkTablesList()
 }
 
 /*
+=======
+>>>>>>> parent of 7138aa0... Testing and working navx
 let UpdateNumber = (key, value) => {
 	document.getElementById('HeaderNumber').innerHTML = value;
+}
+let Navx = (key, variableName) => {
+	document.getElementById('navx_yaw').innerHTML = variableName;
 }
  let Ultrasonic = (key, variableName) => {
 	document.getElementById('ultra').innerHTML = variableName;
@@ -66,14 +72,12 @@ let UpdateNumber = (key, value) => {
  let Nuematics = (key, variableName) => {
 	document.getElementById('nuematics').innerHTML = variableName;
 }
-let BeamBreak = (key, variableName) => {
+let Beam Break = (key, variableName) => {
 	document.getElementById('beam_break').innerHTML = variableName;
 }
-
-
+NetworkTables.addKeyListener('/SmartDashboard/navx_yaw', Navx);
 NetworkTables.addKeyListener('/SmartDashboard/Ultrasonic', UpdateNumber);
 NetworkTables.addKeyListener('/SmartDashboard/ultra', Ultrasonic);
 NetworkTables.addKeyListener('/SmartDashboard/pot', Potentiometer);
 NetworkTables.addKeyListener('nuematics', Nuematics);
-NetworkTables.addKeyListener('beam_break', BeamBreak);
-*/
+NetworkTables.addKeyListener('beam_break', Beam Break);
