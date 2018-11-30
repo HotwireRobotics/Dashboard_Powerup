@@ -18,40 +18,40 @@ head{
 }
 #navx_box{
 	padding: 20px;
-	background-color: #fbf7f5;
-	
+	background-color: #DCDCDC;
+	border: 3px solid red;
 }
 #ultrasonic_box{
 	position: relative;
 	left: 110px;
-	bottom: 175px;
+	bottom: 181px;
 	padding: 20px;
-	background-color: #fbf7f5;
-	
+	background-color: #DCDCDC;
+	border: 3px solid red;
 }
 #pot_box{
 	position: relative;
 	left: 270px; 
-	bottom: 350px;
+	bottom: 361.5px;
 	padding: 20px;
-	background-color: #fbf7f5;
-	
+	background-color: #DCDCDC;
+	border: 3px solid red;
 }
 #nuematic_box{
 	position: relative;
 	left: 400px; 
-	bottom: 525px;
+	bottom: 542px;
 	padding: 20px;
-	background-color: #fbf7f5;
-	
+	background-color: #DCDCDC;
+	border: 3px solid red;
 }
 #beam_box{
 	position: relative;
 	left: 550px; 
-	bottom: 705x;
+	bottom: 722.5px;
 	padding: 20px;
-	background-color: #fbf7f5;
-	
+	background-color: #DCDCDC;
+	border: 3px solid red;
 }
 
 
@@ -89,7 +89,7 @@ head{
 <ul class="uk-subnav uk-subnav-pill" uk-switcher>
 	<li><a href="#">Connection Status</a></li>   
    <li><a href="#">Debug</a></li>
-	<li><a href="#">Match</a></li>
+	<li><a href="#">Auto Selection</a></li>
 	<li><a href="#">Network Tables</a></li>
 </ul>
 
@@ -105,7 +105,7 @@ head{
 
 		<div class="uk-margin" uk-margin>
         <div uk-form-custom="target: true">
-			<input class="uk-input uk-form-width-small" type="text" placeholder="Default" id="connect-address" value="10.29.90.59">
+			<input class="uk-input uk-form-width-small" type="text" placeholder="Default" id="connect-address" value="10.29.90.2">
         </div>
 
         <button id="connect" class="uk-button uk-button-default">Connect</button>
@@ -125,55 +125,21 @@ head{
 	
 	<!-- Debug -->
 	<li>
-		<!--<div id ="sensors display">-->
-		<!--Sensors Display-->
-	<!--Navx-->
-	<div id = "navx_box">
-		<h3> Navx </h3>
-		<h3 id="navx_yaw"> value </h3>
-	</div>
-	
-	<!--Ultrasonic-->
-	<div id= "ultrasonic_box">
-		<h3> Ultrasonic </h3>
-		<h3 id = "ultra"> value </h3> 
-	</div>
-	<!--Pot-->
-	<div id = "pot_box">
-		<h3>Pot</h3>
-		<h3 id = "pot"> value </h3>
-	</div>
-	<!--Nuematics-->
-	<div id = "nuematic_box">
-		<h3> Nuematics </h3>
-		<h3 id = "nuematics"> value </h3>
-	</div>
-	<!--Beam Break---->
-	<div id = "beam_box">
-	<h3> Beam Break</h3>
-	<h3 id = "beam_break"> value </h3>
-	</div>
-		
+		<div id ="sensors display">
 
 	</li>
 	
-	<!-- Match-->
+	<!-- Auto Selection -->
 	<li>
 		<form class="uk-form-stacked">
 		<div class="uk-margin">
 			<div class="uk-form-label">Autonomous Selection</div>
 			<div class="uk-form-controls">
-				<label><input id="Normal Switch" class="uk-radio" type="radio" name="auto-radios" checked> Switch </label><br>
-				<label><input id="Cross Line" class="uk-radio" type="radio" name="auto-radios"> Cross the line </label>
-				
-				<h4>Auto Delay (Seconds)</h4>
-				<input id="auto-delay" class="uk-input" type="number" value="0" oninput="UpdateAutoDelay()">
+				<label><input id="switch" class="uk-radio" type="radio" name="auto-radios" checked> Switch </label><br>
+				<label><input id="cross-the-line" class="uk-radio" type="radio" name="auto-radios"> Cross the line </label>
 			</div>
 		</div>
 		</form>
-		
-		<hr>
-		<div align="center" id="pancake-display"></div>
 	</li>
 	
 	<!-- Network Tables -->
