@@ -6,199 +6,94 @@
 	<style>
 
 h1 {
+    background-color:red;
 	font-color:white;
-	   
+	    padding: 35px;
 		font-weight: bold;
 }
 h3 {
+    background-color:gray;
 	    padding: 2px;
 }
 head{
 	 background-color:red;
 }
-#navx_box{
-	padding: 20px;
-	background-color: #fbf7f5;
-	
-}
-#ultrasonic_box{
-	position: relative;
-	left: 110px;
-	bottom: 175px;
-	padding: 20px;
-	background-color: #fbf7f5;
-	
-}
-#pot_box{
-	position: relative;
-	left: 270px; 
-	bottom: 350px;
-	padding: 20px;
-	background-color: #fbf7f5;
-	
-}
-#nuematic_box{
-	position: relative;
-	left: 400px; 
-	bottom: 525px;
-	padding: 20px;
-	background-color: #fbf7f5;
-	
-}
-#beam_box{
-	position: relative;
-	left: 550px; 
-	bottom: 705x;
-	padding: 20px;
-	background-color: #fbf7f5;
-	
-}
-
-
 </style>
     <meta charset="utf-8">
     <title>FRC Dashboard</title>
 	<link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 	
 	<!-- UIkit CSS -->
 	<link rel="stylesheet" href="css/uikit.min.css" />
 
 	<!-- UIkit JS -->
 	<script src="uikit.min.js"></script>
-	<script src="uikit-icons.min.js"></script>	
+	<script src="uikit-icons.min.js"></script>
+	<h1> Hotwire Dashboard </h1> 
 </head>
 
 <body>
 	
 	
 	
-<div class="uk-padding uk-background-muted">
-
+	<div>
 	
-<<<<<<< HEAD
-	<!-- Header -->
-	<div id="header-holder"><h1 id="header-disconnected" class="uk-text-bold uk-text-danger"> Hotwire Dashboard </h1> </div>
-	<p id="robot-status" class="uk-text-muted"></p>
 	
-	<hr>
+	<nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="file:///C:/Users/proff/Desktop/dashboard/Dashboard/src/index.html">Home Page</a></li>
+            <li><a href=""></a></li>
+        </ul>
+		<ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="file:///C:/Users/proff/Desktop/dashboard/Dashboard/src/Debug.html">Debug Mode</a></li>
+            <li><a href=""></a></li>
+        </ul>
+    </div>
+</nav>
 
+ <header>
+        <!-- Tells whether robot is connected to dashboard. -->
+        <div id="robot-state">Unknown state</div>
+    </header>
+
+<div id="login">
+        <input id="connect-address" type="text" value="test">
+        <button id="connect" disabled>Connecting</button>
+    </div>
+<script src="networktables/networktables.js"></script>
+    <script src="connection.js"></script>
+    <script src="ui.js"></script>	
+	
+	<h3 id="ConnectStatus"> Not Connected </h3>
+	
 		
+
 	
+	</div>
 
 
 <ul class="uk-subnav uk-subnav-pill" uk-switcher>
-	<li><a href="#">Connection Status</a></li>   
-   <li><a href="#">Debug</a></li>
-	<li><a href="#">Match</a></li>
-	<li><a href="#">Network Tables</a></li>
+    <li><a href="#">Debug</a></li>
+    <li><a href="#">Another Tab</a></li>
+    <li><a href="#">Third Tab!</a></li>
 </ul>
 
-<hr>
-
 <ul class="uk-switcher uk-margin">
-    
-	
-	<!-- Connection Status -->
     <li>
-		
-		
-
-		<div class="uk-margin" uk-margin>
-        <div uk-form-custom="target: true">
-			<input class="uk-input uk-form-width-small" type="text" placeholder="Default" id="connect-address" value="10.29.90.59">
-        </div>
-
-        <button id="connect" class="uk-button uk-button-default">Connect</button>
-		<input type="button" value="Refresh Page" class="uk-button uk-button-default" onClick="window.location.reload()">
-		</div>
-		
-
-		
-		<!-- 
-		FRCDashboard Scripts 
-		These need to come after the login html
-		-->
-		<script src="networktables/networktables.js"></script>
-		<script src="connection.js"></script>
-		<script src="ui.js"></script>
-	</li>
-	
-	<!-- Debug -->
-	<li>
-		<!--<div id ="sensors display">-->
-		<!--Sensors Display-->
-	<!--Navx-->
 	<div id = "navx_box">
 		<h3> Navx </h3>
 		<h3 id="navx_yaw"> value </h3>
 	</div>
-	
-	<!--Ultrasonic-->
-	<div id= "ultrasonic_box">
-		<h3> Ultrasonic </h3>
-		<h3 id = "ultra"> value </h3> 
-	</div>
-	<!--Pot-->
-	<div id = "pot_box">
-		<h3>Pot</h3>
-		<h3 id = "pot"> value </h3>
-	</div>
-	<!--Nuematics-->
-	<div id = "nuematic_box">
-		<h3> Nuematics </h3>
-		<h3 id = "nuematics"> value </h3>
-	</div>
-	<!--Beam Break---->
-	<div id = "beam_box">
-	<h3> Beam Break</h3>
-	<h3 id = "beam_break"> value </h3>
-	</div>
-		
-
 	</li>
 	
-	<!-- Match-->
-	<li>
-		<form class="uk-form-stacked">
-		<div class="uk-margin">
-			<div class="uk-form-label">Autonomous Selection</div>
-			<div class="uk-form-controls">
-				<label><input id="Normal Switch" class="uk-radio" type="radio" name="auto-radios" checked> Switch </label><br>
-				<label><input id="Cross Line" class="uk-radio" type="radio" name="auto-radios"> Cross the line </label>
-				
-				<h4>Auto Delay (Seconds)</h4>
-				<input id="auto-delay" class="uk-input" type="number" value="0" oninput="UpdateAutoDelay()">
-			</div>
-		</div>
-		</form>
-		
-		<hr>
-		<div align="center" id="pancake-display"></div>
-	</li>
-	
-	<!-- Network Tables -->
-	<li>
-	<button class="uk-button uk-button-default" onClick="UpdateNetworkTablesList()">Refresh</button>
-	<ul class="uk-list uk-list-striped" id="network-tables-list"><li></li></ul>
-	
-    
+    <li>Hello again!</li>
+    <li>Bazinga!</li>
 </ul>
-=======
-	<!--<h3 id="ConnectStatus"> value </h3>-->
-	
-	
-
-	
-	</div>
-	
->>>>>>> parent of 7138aa0... Testing and working navx
-
-
-<<<<<<< HEAD
-<div align="center" id="camera_div"></div>	
 
 </body>
+
+
+
 </html>
-=======
-</html>
->>>>>>> parent of 7138aa0... Testing and working navx

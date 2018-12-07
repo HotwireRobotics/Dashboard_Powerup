@@ -22,7 +22,8 @@ onkeydown = key => {
 };
 
 /**
- * Function to be called when robot connects
+ * Function to be called when robot c
+ onnects
  * @param {boolean} connected
  */
 function onRobotConnection(connected) {
@@ -30,6 +31,7 @@ function onRobotConnection(connected) {
   console.log(state);
   //ui.robotState.textContent = state;
 
+  
   /*
   buttonConnect.onclick = () => {
     //document.body.classList.toggle('login', true);
@@ -40,16 +42,14 @@ function onRobotConnection(connected) {
   if (connected) {
     // On connect hide the connect popup
     //document.body.classList.toggle('login', false);
-<<<<<<< HEAD
-=======
 	
-	document.getElementById('ConnectStatus').innerHTML = "value";
+	document.getElementById('ConnectStatus').innerHTML = state;
 	
->>>>>>> parent of 7138aa0... Testing and working navx
     loginShown = false;
   } else if (loginShown) {
     setLogin();
   }
+
 }
 function setLogin() {
   // Add Enter key handler
@@ -57,7 +57,7 @@ function setLogin() {
   address.disabled = connect.disabled = false;
   connect.textContent = 'Connect';
   // Add the default address and select xxxx
-  address.value = '10.29.90.59';
+  address.value = 'roborio-xxxx-frc.local';
   address.focus();
   address.setSelectionRange(8, 12);
 }
