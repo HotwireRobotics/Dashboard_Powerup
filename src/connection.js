@@ -49,7 +49,13 @@ function onRobotConnection(connected) {
   } else if (loginShown) {
     setLogin();
   }
+  
+  if (connected) {
+	  document.getElementById('DangerText').innerHTML = '<h1 id="header-disconnected" class="uk-text-bold uk-text-success"> Hotwire Dashboard </h1>';
 
+	}else{
+	  document.getElementById('DangerText').innerHTML = '<h1 id="header-disconnected" class="uk-text-bold uk-text-danger"> Hotwire Dashboard </h1>';
+}	
 }
 function setLogin() {
   // Add Enter key handler
@@ -57,7 +63,7 @@ function setLogin() {
   address.disabled = connect.disabled = false;
   connect.textContent = 'Connect';
   // Add the default address and select xxxx
-  address.value = 'roborio-xxxx-frc.local';
+  address.value = '10.29.90.59';
   address.focus();
   address.setSelectionRange(8, 12);
 }
