@@ -15,8 +15,19 @@ h3 {
     background-color:gray;
 	    padding: 2px;
 }
-head{
+body{
+	padding: 20px;
+}
 
+#camera {
+    padding: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    height: 240px;
+    overflow: hidden;
+    background-color: #333;
+    background-image: url('http://10.29.90.11:5800/');
 }
 </style>
 
@@ -80,6 +91,8 @@ head{
 	<li><a href="#">Network Tables</a></li>
 </ul>
 
+<hr>
+
 <ul class="uk-switcher uk-margin">
     <li><div id="login">
         <input id="connect-address" type="text" value="10.29.90.52">
@@ -89,7 +102,6 @@ head{
     <script src="connection.js"></script>
     <script src="ui.js"></script>	
 	
-	<h3 id="ConnectStatus"> Not Connected </h3> </li>
 	<li>
 	<div id = "navx_box">
 		<h3> Navx </h3>
@@ -98,13 +110,15 @@ head{
 	</li>
 	
     
-    <li>Bazinga!</li>
+	<!-- Camera-->
+    <li><div id="camera"></div></li>
+	
+	<!-- Network tables -->
 	<li>
 	<button class="uk-button uk-button-default" onClick="UpdateNetworkTablesList()">Refresh</button>
 	<ul class="uk-list uk-list-striped" id="network-tables-list"><li></li></ul>
 	</li>
 </ul>
-
 </body>
 
 

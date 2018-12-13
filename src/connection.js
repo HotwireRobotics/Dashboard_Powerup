@@ -43,8 +43,6 @@ function onRobotConnection(connected) {
     // On connect hide the connect popup
     //document.body.classList.toggle('login', false);
 	
-	document.getElementById('ConnectStatus').innerHTML = state;
-	
     loginShown = false;
   } else if (loginShown) {
     setLogin();
@@ -52,10 +50,9 @@ function onRobotConnection(connected) {
   
   if (connected) {
 	  document.getElementById('DangerText').innerHTML = '<h1 id="header-disconnected" class="uk-text-bold uk-text-success"> Hotwire Dashboard </h1>';
-
-	}else{
+  } else {
 	  document.getElementById('DangerText').innerHTML = '<h1 id="header-disconnected" class="uk-text-bold uk-text-danger"> Hotwire Dashboard </h1>';
-}	
+  }	
 }
 function setLogin() {
   // Add Enter key handler
